@@ -68,3 +68,57 @@ create table ORDERS(id int identity(1,1),Order_Date Date, Order_Number int prima
 FROM order_item oi
 JOIN ORDERS  o ON o.Order_Number = oi.Order_Number
 JOIN Product p ON p.id           = oi.Product_id;
+ 
+
+ create table Students(id int  primary key identity(1,1),Name varchar(100),Email varchar(100),Course_id int ,T_ID int)
+ create table Course(id int  primary key identity(1,1),Name varchar(100))
+ create table Teachers(id int  primary key identity(1,1),Name varchar(100))
+
+ insert into Course(Name)values
+ ('MS Office'),
+ ('HTML'),
+ ('CSS'),
+ ('Javascript'),
+ ('Bootstrap'),
+ ('PHP'),
+ ('Laravel'),
+ ('SQL Server'),
+ ('C#'),
+ ('C++'),
+ ('ASP.net'),
+ ('Wordpress'),
+ ('Shopify');
+
+ insert into Teachers(Name)values
+ ('Haris Khan'),
+ ('Iqrar'),
+ ('Shakeel'),
+ ('Raheel'),
+ ('Shahzad'),
+ ('Ahmed Baig'),
+ ('Sarfaraz Ahmed')
+ select*from Course
+ select*from Teachers
+  select*from Students
+ insert into Students(Name,Email,Course_id,T_ID)values
+ ('Rayan','rayan@gmail.com',8,5),
+  ('Rafay','rafay@gmail.com',5,6),
+   ('Shahbaz','shah@gmail.com',4,1),
+    ('Ali','ali@gmail.com',6,2),
+	 ('Taha','taha@gmail.com',9,4),
+	  ('Owais','owais@gmail.com',10,3),
+	   ('Zia','zia@gmail.com',11,6),
+	    ('Hadi','hadi@gmail.com',8,5),
+		 ('Usman','usman@gmail.com',11,6),
+		  ('Saad','saad@gmail.com',6,2),
+		   ('rehman','rehman@gmail.com',12,4),
+		    ('Zohaib','zohi@gmail.com',12,4);
+
+
+select Students.Name,Students.Email,Course.Name,Teachers.Name from Students
+inner join Course on Course.id = Students.id
+inner join Teachers on Teachers.id = Course.id
+
+select * from Students
+left join Course on Course.id = Students.id
+left join Teachers on Teachers.id = Course.id
